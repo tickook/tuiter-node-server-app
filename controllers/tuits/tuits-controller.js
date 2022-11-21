@@ -7,6 +7,7 @@ const createTuit = (req, res) => {
     // console.log(req.body);
     newTuit._id = (new Date()).getTime()+'';
     newTuit.likes = 0;
+    newTuit.dislikes = 0;
     newTuit.liked = false;
     newTuit.handle = "kartiktickoo";
     newTuit.userName = "KartikTickoo"
@@ -24,7 +25,8 @@ const updateTuit = (req, res) => {
         (t) => t._id === tuitdIdToUpdate)
     tuits[tuitIndex] =
         {...tuits[tuitIndex], ...updates};
-    res.sendStatus(200);
+    // res.sendStatus(200);
+    res.json(tuits[tuitIndex]);
 }
 
 
